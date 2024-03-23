@@ -1,0 +1,96 @@
+@media screen and (min-width: 768px) {
+    .header-burger-menu{
+        display:none;
+    }
+}
+@media screen and (max-width: 768px) {
+    .navigation-list-item{
+        display: none;
+    }
+    .contacts-list-item{
+        display: none;
+    }
+    .header-burger-menu{
+        display:inline-block;
+    }
+    .header{
+        width: 100%;
+    }
+}
+
+.header-burger-menu{
+    margin-left: auto;
+}
+.header {
+    background-color: $color-footer-info;
+    padding: 24px 0;
+    min-height: 80px;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+
+    &-logo {
+        @include fontstyles(Roboto, 26px, 700, 31px, 0.03em, left, $color-black);
+    }
+
+    &-wrap {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.contacts-list {
+    display: flex;
+    gap: 50px;
+    margin-left: auto;
+
+    &-item {
+        @include fontstyles(Roboto, 14px, 500, 16px, 0.02em, left, $color-p);
+        &:hover {
+            @extend %hover-element;
+        }
+    }
+    &-link{
+        color: #757575;
+    }
+    &-link-svg {
+        color: currentColor;
+        &-use{
+            fill: #757575;
+        }
+    }
+
+}
+
+.navigation-list {
+    display: flex;
+    gap: 50px;
+    padding-left: 40px;
+
+    &-item {
+        @include fontstyles(Roboto, 14px, 500, 16px, 0.02em, left, $color-p);
+
+        &-link {
+            @include fontstyles(Raleway, 14px, 500, 16px, 0.03em, left, $color-black);
+        }
+
+        &-link-current {
+            position: relative;
+            font-family: Roboto;
+
+            &::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 48px;
+                height: 4px;
+                border-radius: 2px;
+                margin-bottom: -33px;
+                background-color: $color-blue;
+            }
+        }
+    }
+}
